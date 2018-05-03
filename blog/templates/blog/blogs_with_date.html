@@ -1,0 +1,12 @@
+{% extends 'blog/blog_list.html' %}
+
+{# 我的网站 #}
+{% block title %}
+    {{ blog_type.type_name }}
+{% endblock %}
+
+{# 页面内容 #}
+{% block blog_list_title %}
+    日期归档：{{ blogs_with_datee }}
+    <a href="{% url 'blog_list' %}">查看全部博客</a>
+{% endblock %}
