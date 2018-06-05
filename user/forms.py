@@ -26,7 +26,7 @@ class RegForm(forms.Form):
                             min_length=3,
                             widget=forms.TextInput(
                                                 attrs={'class':'form-control', 'placeholder':'请输入3-30位字符的用户名'}))
-    email = forms.CharField(label='邮箱', 
+    email = forms.EmailField(label='邮箱', 
                             widget=forms.TextInput(
                                                 attrs={'class':'form-control', 'placeholder':'请输入邮箱'}))
     password = forms.CharField(label='密码',
