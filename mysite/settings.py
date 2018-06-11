@@ -25,7 +25,7 @@ SECRET_KEY = '7^74)nk94mgo4wu2!yl19)mxl^0oel*+^d))ftli949zi=q-+g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [licsky.pythonanywhere.com]
 
 
 # Application definition
