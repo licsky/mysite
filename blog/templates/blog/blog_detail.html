@@ -55,7 +55,7 @@
                     <h3 class="comment-area-title">提交评论</h3>
                     {% if user.is_authenticated %}
                         <form id="comment_form" action="{% url 'update_comment' %}" method="POST" style="overflow: hidden;">                           
-                            <label>{{ user.username }}，欢迎评论～</label>
+                            <label>{{ user.get_nickname_or_username }}，欢迎评论～</label>
                             <div id="reply_content_container" style="display: none;">
                                 <p id="reply_title">回复：</p>
                                 <div id="reply_content"></div>
@@ -82,7 +82,7 @@
                         {% get_comment_list blog as comments %}
                         {% for comment in comments %}
                             <div id="root_{{ comment.pk }}" class="comment">
-                                <sapn>{{ comment.user.username }}</sapn>
+                                <sapn>{{ comment.user.get_nickname_or_username }}</sapn>
                                 <span>({{ comment.comment_time|date:"Y-m-d H:i:s" }}):</span>
                                 <div id="comment_{{ comment.pk }}">
                                     {{ comment.text|safe }}
@@ -94,11 +94,11 @@
                                 <a href="javascript:reply({{ comment.pk }});">回复</a>
                                 {% for reply in comment.root_comment.all %}
                                 <div class="reply">
-                                    <span>{{ reply.user.username }}</span>
+                                    <span>{{ reply.user.get_nickname_or_username }}</span>
                                     <span>({{ reply.comment_time|date:"Y-m-d H:i:s" }}):</span>
                                     
                                     <span>回复</span>
-                                    <span>{{ reply.reply_to.username }}:</span>
+                                    <span>{{ reply.reply_to.get_nickname_or_username }}:</span>
                                     <div id="comment_{{ reply.pk }}">
                                         {{ reply.text|safe }}
                                     </div>
